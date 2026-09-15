@@ -1,0 +1,23 @@
+# Lưu ý: product-service phải là tên service con và name của service con đó
+server:
+  port: 8081
+
+spring:
+  application:
+    name: medicine-service
+  datasourse:
+    url: ${MEDICINE_DB_URL:jdbc:mysql://localhost8080/medicine_db}
+    username: "${MEDICINE_DB:root}"
+    password: "${MEDICINE_PASSWORD:loc123456}"
+  hibernate:
+    show-sql: true
+    open-in-view: true
+  jpa:
+    seed-data: true
+  cloud:
+    openfeign:
+      client:
+        config:
+          category-service:
+            connectTimeout: 2000
+            readTimeout: 3000

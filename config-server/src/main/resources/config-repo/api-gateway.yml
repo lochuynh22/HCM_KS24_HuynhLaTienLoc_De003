@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+eureka:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: medicine-route
+              uri: lb://medicine-service
+              predicates:
+                - Path=/api/medicines/**
+            - id: category-route
+              uri: lb://category-service
+              predicates:
+                - Path=/api/category/**
+spring:
+  main:
+    web-application-type=reactive:

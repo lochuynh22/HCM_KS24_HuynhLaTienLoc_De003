@@ -1,0 +1,17 @@
+# Lưu ý: category-service phải là tên service con và name của service con đó
+server:
+  port: 8082
+
+spring:
+  application:
+    name: category-service
+  datasourse:
+    url: ${CATEGORY_DB_URL:jdbc:mysql://localhost8080/createDatabaseIfNotExits=true&allowPublicKeyRevi}
+    username: "${CATEGORY_DB:root}"
+    password: "${CATEGORY_PASSWORD:loc123456}"
+    diver-class-name: com.mysql.cj.jdbc
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      open-in-view: true
